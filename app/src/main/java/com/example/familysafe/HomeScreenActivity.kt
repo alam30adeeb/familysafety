@@ -12,18 +12,23 @@ class HomeScreenActivity : AppCompatActivity() {
         val bottomBar:BottomNavigationView = findViewById(R.id.bottomBar)
 
         bottomBar.setOnItemSelectedListener {
-            if(it.itemId==R.id.nav_guard){
-                inflateGuardFragment(GuardFragment.newInstance("h","e"))
-            }else if(it.itemId==R.id.nav_home){
-                inflateGuardFragment(HomeFragment.newInstance("h","e"))
-            }else if(it.itemId==R.id.nav_dashboard){
-                inflateGuardFragment(DashboardFragment.newInstance("h","e"))
-            }else if(it.itemId==R.id.nav_user){
-                inflateGuardFragment(UserFragment.newInstance("h","e"))
+            when (it.itemId) {
+                R.id.nav_guard -> {
+                    inflateGuardFragment(GuardFragment.newInstance("h","e"))
+                }
+                R.id.nav_home -> {
+                    inflateGuardFragment(HomeFragment.newInstance("h","e"))
+                }
+                R.id.nav_dashboard -> {
+                    inflateGuardFragment(DashboardFragment.newInstance("h","e"))
+                }
+                R.id.nav_user -> {
+                    inflateGuardFragment(UserFragment.newInstance("h","e"))
+                }
             }
             true
-
         }
+        bottomBar.selectedItemId=R.id.nav_home
     }
 
     private fun inflateGuardFragment(p1: Fragment) {
